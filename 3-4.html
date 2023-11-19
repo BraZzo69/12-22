@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Functions</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  h1 {
+    color: #333;
+  }
+  code {
+    background-color: #f9f9f9;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Робота з класом Array</h1>
+  <p>Модифікований масив: <code id="arrayOutput"></code></p>
+</div>
+
+<div class="container">
+  <h1>Робота з методами класу Array</h1>
+  <p>Модифікований масив: <code id="arrayOperationsOutput"></code></p>
+</div>
+
+<div class="container">
+  <h1>Робота з класом Number</h1>
+  <p>Ціле число: <code id="number1Output"></code></p>
+  <p>Не ціле число: <code id="number2Output"></code></p>
+</div>
+
+<script>
+  function modifyArray(arr) {
+    arr.unshift("start");
+    arr.pop();
+    arr[1] = "modified";
+    return arr;
+  }
+
+  let exampleArray = [1, 2, 3, 4, 5];
+  let modifiedArray = modifyArray(exampleArray);
+  document.getElementById("arrayOutput").innerText = JSON.stringify(modifiedArray);
+
+  function arrayOperations(arr) {
+    arr.push("end");
+    arr.shift();
+    arr.splice(3, 0, "middle");
+    return arr;
+  }
+
+  let exampleArray2 = [1, 2, 3, 4, 5];
+  let modifiedArray2 = arrayOperations(exampleArray2);
+  document.getElementById("arrayOperationsOutput").innerText = JSON.stringify(modifiedArray2);
+
+  function checkInteger(number) {
+    if (Number.isInteger(number)) {
+      return "Ціле число";
+    } else {
+      return "Не ціле число";
+    }
+  }
+
+  let integerNumber = 5;
+  let nonIntegerNumber = 3.14;
+
+  document.getElementById("number1Output").innerText = checkInteger(integerNumber) + ": " + integerNumber;
+  document.getElementById("number2Output").innerText = checkInteger(nonIntegerNumber) + ": " + nonIntegerNumber;
+</script>
+
+</body>
+</html>
